@@ -25,14 +25,12 @@ android {
     }
 
     buildTypes {
-
         debug {
             minifyEnabled false
 
             debuggable true
             jniDebuggable true
             renderscriptDebuggable true
-
         }
         release {
             minifyEnabled false
@@ -87,7 +85,6 @@ dependencies {
     implementation Dependencies.AndroidX.AppCompat.appcompat
     implementation Dependencies.Material.material
     implementation Dependencies.AndroidX.ConstraintLayout.constraintLayout
-    implementation files('libs\\YouTubeAndroidPlayerApi.jar')
     testImplementation Dependencies.AndroidX.TestJunit.testImplementation
     androidTestImplementation Dependencies.AndroidX.AndroidTest.androidTestExtImplementation
     androidTestImplementation Dependencies.AndroidX.AndroidTestEspresso.androidTestImplementation
