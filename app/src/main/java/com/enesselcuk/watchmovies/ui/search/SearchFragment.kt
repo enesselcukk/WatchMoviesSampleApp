@@ -37,6 +37,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                 searchAdapter.withLoadStateFooter(UnSplashLoadAdapter(searchAdapter::retry))
 
             recyclerviewSearch.setHasFixedSize(true)
+            searchBar.isSubmitButtonEnabled = true
         }
     }
 

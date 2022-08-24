@@ -18,6 +18,7 @@ object Abstract {
         ): Boolean {
             TODO("Not yet implemented")
         }
+
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             TODO("Not yet implemented")
         }
@@ -27,6 +28,7 @@ object Abstract {
         override fun onQueryTextSubmit(query: String?): Boolean {
             return false
         }
+
         override fun onQueryTextChange(newText: String?): Boolean {
             return false
         }

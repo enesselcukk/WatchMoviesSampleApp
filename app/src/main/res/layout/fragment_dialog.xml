@@ -8,19 +8,19 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="20dp"
         android:background="@drawable/line_layout_dialog"
-        android:minWidth="250dp"
-        android:minHeight="250dp">
+        android:minWidth="@dimen/minWidthThree"
+        android:minHeight="@dimen/minHeightThree">
 
         <TextView
             android:id="@+id/text_categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginVertical="@dimen/margin_verticalFour"
             android:fontFamily="@font/bitter_bold_italic"
             android:text="@string/categories"
-            android:textSize="22sp"
+            android:textSize="@dimen/text_sizeThree"
             android:textStyle="bold"
+            android:textColor="@color/milk"
             app:layout_constraintEnd_toStartOf="@id/btn_close"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,53 +29,69 @@
             android:id="@+id/btn_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
-            android:background="@drawable/line_close_btn"
+            android:layout_marginVertical="@dimen/margin_verticalFour"
+            android:contentDescription="@string/image_close"
             android:src="@drawable/ic_baseline_close"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/text_categories"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/text_now_playing"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="50dp"
-            android:fontFamily="@font/bitter_bold_italic"
+            android:layout_marginVertical="@dimen/margin_verticalFour"
+            android:backgroundTint="@color/milk"
             android:text="@string/now_playing"
+            android:textAllCaps="false"
+            android:textColor="@color/eden"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_categories" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/popular"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:fontFamily="@font/bitter_bold_italic"
-            android:text="@string/popular"
+            android:layout_marginVertical="@dimen/margin_verticalThree"
+            android:backgroundTint="@color/milk"
+            android:text="@string/top_rated"
+            android:textAllCaps="false"
+            android:textColor="@color/eden"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_now_playing" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/top_rated"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:fontFamily="@font/bitter_bold_italic"
-            android:text="@string/top_rated"
+            android:layout_marginVertical="@dimen/margin_verticalThree"
+            android:backgroundTint="@color/milk"
+            android:text="@string/upcoming"
+            android:textAllCaps="false"
+            android:textColor="@color/eden"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/popular" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/upComing"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
-            android:fontFamily="@font/bitter_bold_italic"
-            android:text="@string/upcoming"
+            android:layout_marginVertical="@dimen/margin_verticalThree"
+            android:backgroundTint="@color/milk"
+            android:text="@string/popular"
+            android:textAllCaps="false"
+            android:textColor="@color/eden"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_rated" />

@@ -47,7 +47,6 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(FragmentFavoriteB
                 FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(it)
             findNavController().navigate(action)
         }
-
     }
 
     override fun swipe() {

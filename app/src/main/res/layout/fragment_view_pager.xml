@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="setDataPager"
             type="com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies" />
@@ -43,6 +42,5 @@
             app:layout_constraintTop_toBottomOf="@+id/placeholder_game_img"
             tools:layout_editor_absoluteX="0dp"
             tools:text="Movies Name" />
-
     </FrameLayout>
 </layout>

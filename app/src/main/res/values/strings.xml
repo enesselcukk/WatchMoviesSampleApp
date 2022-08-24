@@ -35,8 +35,13 @@
     <string name="searchHintName">Search Movies</string>
 
 
-    <string name="ok">Ok</string>
+
     <string name="image_average">image_average</string>
     <string name="image_favorite">image_favorite</string>
     <string name="watch_movies">Watch Movies</string>
+    <string name="image_score">image_score</string>
+    <string name="image_comment">image_comment</string>
+    <string name="image_search">image_search</string>
+    <string name="image_category">image_category</string>
+    <string name="image_close">image_close</string>
 </resources>

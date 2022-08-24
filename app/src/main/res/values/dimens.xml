@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size">28sp</dimen>
+    <dimen name="text_sizeTwo">18sp</dimen>
+    <dimen name="text_sizeThree">22sp</dimen>
+    <dimen name="margin_horizontal">10dp</dimen>
+    <dimen name="margin_horizontalTwo">5dp</dimen>
+    <dimen name="margin_horizontalThree">15dp</dimen>
+    <dimen name="margin_horizontalFour">25dp</dimen>
+
+    <dimen name="margin_vertical">10dp</dimen>
+    <dimen name="margin_verticalFour">15dp</dimen>
+    <dimen name="margin_verticalTwo">20dp</dimen>
+    <dimen name="margin_verticalThree">5dp</dimen>
+    <dimen name="margin_vertical_input">80dp</dimen>
+    <dimen name="margin_horizontal_input">40dp</dimen>
+    <dimen name="minWidth">130dp</dimen>
+    <dimen name="minWidthTwo">220dp</dimen>
+    <dimen name="minHeight">160dp</dimen>
+    <dimen name="minHeightTwo">100dp</dimen>
+    <dimen name="maxWidth">250dp</dimen>
+
+    <dimen name="minHeightThree">250dp</dimen>
+    <dimen name="minWidthThree">250dp</dimen>
+</resources>

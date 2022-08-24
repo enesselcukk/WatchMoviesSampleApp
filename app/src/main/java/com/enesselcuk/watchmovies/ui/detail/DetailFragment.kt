@@ -45,11 +45,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
                 if (isLiked == true) {
                     isLiked = true
                     binding.btnInsert.setImageResource(R.drawable.ic_baseline_bookmark_add)
-                    Toast.makeText(
-                        requireContext(),
-                        "${detailResponse.title} deleted",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 } else {
                     isLiked = false
                     detailViewModel.moviesInsert(detailResponse.mapToFavorite())
@@ -87,7 +82,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
 
                         val key = it.key
                         youTubePlayer.cueVideo(key, 0.0f)
-
                     }
                 })
             }

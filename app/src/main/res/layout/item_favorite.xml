@@ -10,7 +10,6 @@
             type="com.enesselcuk.watchmovies.source.local.entity.MoviesFavoriteEntity" />
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -59,7 +58,8 @@
             android:layout_marginVertical="5dp"
             android:src="@drawable/ic_baseline_star"
             app:layout_constraintStart_toEndOf="@id/text_average"
-            app:layout_constraintTop_toBottomOf="@id/text_name" />
+            app:layout_constraintTop_toBottomOf="@id/text_name"
+            android:contentDescription="@string/image_average" />
 
         <TextView
             android:id="@+id/text_date"
@@ -71,7 +71,6 @@
             app:layout_constraintStart_toEndOf="@id/image_movies"
             app:layout_constraintTop_toBottomOf="@id/text_average"
             tools:text="1/05/2000" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

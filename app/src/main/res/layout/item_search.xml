@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="setData"
             type="com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies" />
     </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -59,7 +57,8 @@
             android:layout_marginVertical="5dp"
             android:src="@drawable/ic_baseline_star"
             app:layout_constraintStart_toEndOf="@id/text_average"
-            app:layout_constraintTop_toBottomOf="@id/text_name" />
+            app:layout_constraintTop_toBottomOf="@id/text_name"
+            android:contentDescription="@string/image_score" />
 
         <TextView
             android:id="@+id/vote_count"
@@ -78,8 +77,8 @@
             android:layout_marginHorizontal="5dp"
             android:src="@drawable/ic_common"
             app:layout_constraintStart_toEndOf="@id/vote_count"
-            app:layout_constraintTop_toTopOf="@id/vote_count" />
-
+            app:layout_constraintTop_toTopOf="@id/vote_count"
+            android:contentDescription="@string/image_comment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

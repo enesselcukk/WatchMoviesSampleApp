@@ -1,6 +1,7 @@
 package com.enesselcuk.watchmovies.ui.category
 
 
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -30,6 +31,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     private lateinit var pagingAdapter: CategoryAdapter
 
     override fun definition() {
+        backPressed()
+
         pagingAdapter = CategoryAdapter(::detailClick)
         categoryViewModel.moviesCategory(getArgs.nowplaying, LANGUAGE)
 
@@ -74,5 +77,18 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
                 CategoryFragmentDirections.actionCategoryFragmentToDetailFragment(idToDetail)
             findNavController().navigate(action)
         }
+    }
+
+    private fun backPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (isEnabled) {
+                        isEnabled = false
+                        requireActivity().onBackPressed()
+                    }
+                }
+            }
+        )
     }
 }

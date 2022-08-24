@@ -14,5 +14,4 @@ class TrendingViewHolder(private val binding: ItemMoviesTrendingBinding) :
             itemClick(movies)
         }
     }
-
 }
