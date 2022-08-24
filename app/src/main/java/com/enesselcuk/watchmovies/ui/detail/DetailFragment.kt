@@ -81,7 +81,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
                         youtubePlayerView.setCustomPlayerUi(defaultPlayerUiController.rootView)
 
                         val key = it.key
-                        youTubePlayer.cueVideo(key, 0.0f)
+                        if (key.isNotEmpty()) {
+                            youTubePlayer.cueVideo(key, 0.0f)
+                        }
                     }
                 })
             }
