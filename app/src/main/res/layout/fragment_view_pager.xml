@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="setDataPager"
             type="com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies" />
@@ -26,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/circlePager"
-            app:storeImage="@{setDataPager.poster_path}"
+            app:storeImagePage="@{setDataPager.poster_path}"
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -42,5 +43,6 @@
             app:layout_constraintTop_toBottomOf="@+id/placeholder_game_img"
             tools:layout_editor_absoluteX="0dp"
             tools:text="Movies Name" />
+
     </FrameLayout>
 </layout>

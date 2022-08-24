@@ -3,6 +3,7 @@ package com.enesselcuk.watchmovies.ui.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.enesselcuk.watchmovies.domain.MoviesRepos
 import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +20,7 @@ class SearchViewModel @Inject constructor(private val repos: MoviesRepos) : View
 
     fun searchAll(language: String, name: String) {
         viewModelScope.launch {
-            repos.allSearch(language, name).collectLatest {
+            repos.allSearch(language, name).cachedIn(viewModelScope).collectLatest {
                 _flowSearch.value = it
             }
         }

@@ -38,9 +38,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     }
 
     private fun detailUiState(detailUiState: DetailUiState) {
-        detailUiState.detailResponse?.let { detailResponse ->
-            binding.setData = detailResponse
 
+        binding.setData = detailUiState
+        detailUiState.detailResponse?.let { detailResponse ->
             binding.btnInsert.setOnClickListener {
                 if (isLiked == true) {
                     isLiked = true

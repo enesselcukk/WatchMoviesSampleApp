@@ -7,8 +7,10 @@
 
         <variable
             name="setData"
-            type="com.enesselcuk.watchmovies.source.remote.response.detail.DetailResponse" />
+            type="com.enesselcuk.watchmovies.ui.detail.DetailUiState" />
+
     </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -35,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/youtube_player_view"
             app:shapeAppearanceOverlay="@style/circlePager"
-            app:storeImage="@{setData.poster_path}" />
+            app:storeImage="@{setData.detailResponse.poster_path}" />
 
         <TextView
             android:id="@+id/text_movies_name"
@@ -43,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_horizontal"
             android:fontFamily="@font/bitter_bold_italic"
-            android:text="@{setData.title}"
+            android:text="@{setData.detailResponse.title}"
             android:textSize="@dimen/text_sizeTwo"
             app:layout_constraintStart_toEndOf="@id/image_movies"
             app:layout_constraintTop_toBottomOf="@id/btn_insert"
@@ -65,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_horizontalThree"
-            android:text="@{setData.genres.get(0).name}"
+            android:text="@{setData.detailResponse.genres.get(0).name}"
             app:layout_constraintStart_toEndOf="@id/image_movies"
             app:layout_constraintTop_toBottomOf="@id/text_movies_name"
             tools:text="actions" />
@@ -75,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_horizontalFour"
-            android:text="@{setData.vote_average.toString()}"
+            android:text="@{setData.detailResponse.vote_average.toString()}"
             app:layout_constraintStart_toEndOf="@id/textView_category"
             app:layout_constraintTop_toBottomOf="@id/text_movies_name"
             tools:text="8.6" />
@@ -95,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_horizontal"
-            app:formatDate="@{setData.release_date}"
+            app:formatDate="@{setData.detailResponse.release_date}"
             app:layout_constraintBottom_toTopOf="@id/text_movies_detail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_movies_name"
@@ -111,11 +113,21 @@
             android:maxLines="2"
             android:minWidth="@dimen/minWidthTwo"
             android:minHeight="@dimen/minHeightTwo"
-            android:text="@{setData.overview}"
+            android:text="@{setData.detailResponse.overview}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/image_movies"
             app:layout_constraintTop_toBottomOf="@id/text_movies_name"
             tools:text="Batman dfdsfsdfsdfsdfsdf" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressbar="@{setData.isLoading()}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

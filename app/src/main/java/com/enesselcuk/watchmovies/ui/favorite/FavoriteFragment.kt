@@ -39,6 +39,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(FragmentFavoriteB
         favoriteUiState.favoriteEntity?.let {
             favoriteAdapter.submitList(it)
         }
+        binding.setData = favoriteUiState
     }
 
     private fun itemClick(moviesFavoriteEntity: MoviesFavoriteEntity) {

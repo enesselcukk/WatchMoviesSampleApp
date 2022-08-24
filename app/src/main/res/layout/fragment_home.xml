@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="setSearchData"
-            type="Boolean" />
+            name="setData"
+            type="com.enesselcuk.watchmovies.ui.homeFragment.HomeUiState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,11 +21,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:background="@drawable/line_search"
+            android:contentDescription="@string/image_search"
             android:src="@drawable/ic_baseline_search"
             app:layout_constraintBottom_toTopOf="@id/home_top_area"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/image_search" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,11 +82,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
+            android:contentDescription="@string/image_category"
             android:src="@drawable/ic_baseline_category"
             app:layout_constraintBottom_toTopOf="@id/recyclerview"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_top_area"
-            android:contentDescription="@string/image_category" />
+            app:layout_constraintTop_toBottomOf="@id/home_top_area" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
@@ -99,6 +100,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_category_name"
             tools:listitem="@layout/item_movies_trending" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressbar="@{setData.isLoading()}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

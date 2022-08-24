@@ -7,5 +7,4 @@ data class FavoriteUiState(
     val favoriteEntity: List<MoviesFavoriteEntity>? = emptyList(),
     val isLoading: Boolean? = null,
     val isError: String? = R.string.error.toString()
-
 )

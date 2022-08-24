@@ -3,6 +3,7 @@ package com.enesselcuk.watchmovies.ui.category
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.enesselcuk.watchmovies.domain.MoviesRepos
 import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +22,7 @@ class CategoryViewModel @Inject constructor(private val repos: MoviesRepos) : Vi
 
     fun moviesCategory(categoryName: String, language: String) {
         viewModelScope.launch {
-            repos.getMoviesPaging(categoryName, language).collectLatest {
+            repos.getMoviesPaging(categoryName, language).cachedIn(viewModelScope).collectLatest {
                 _categoryFlow.value = it
             }
         }

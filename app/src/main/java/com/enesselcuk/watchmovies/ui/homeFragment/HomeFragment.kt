@@ -1,7 +1,6 @@
 package com.enesselcuk.watchmovies.ui.homeFragment
 
 
-
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,12 +16,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 
-
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     private val homeViewModel: HomeViewModel by activityViewModels()
     private lateinit var pagerAdapter: HomePagerAdapter
-
 
     private lateinit var homeAdapter: HomeAdapter
     override fun definition() {
@@ -50,10 +47,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         collectLatest(homeViewModel.allMovies, ::pagerUiState)
     }
 
-    private fun setMovies(setData: HomeUiState) {
-        setData.moviesResponse?.results?.let { moviesResult ->
+    private fun setMovies(homeSetData: HomeUiState) {
+        homeSetData.moviesResponse?.results?.let { moviesResult ->
             homeAdapter.submitList(moviesResult.shuffled().take(8))
         }
+        binding.setData = homeSetData
+
     }
 
     private fun pagerUiState(pagerUiState: HomeUiState) {

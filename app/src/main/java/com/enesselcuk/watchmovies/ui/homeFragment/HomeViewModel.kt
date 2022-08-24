@@ -46,7 +46,7 @@ class HomeViewModel @Inject constructor(
                 _allMovies.update { pagerUi ->
                     pagerUi.copy(
                         moviesResponse = networkResult.data,
-                        isLoading = false
+                        isLoading = true
                     )
                 }
             }
@@ -54,14 +54,14 @@ class HomeViewModel @Inject constructor(
                 _allMovies.update { pagerUi ->
                     pagerUi.copy(
                         isError = networkResult.message,
-                        isLoading = false
+                        isLoading = true
                     )
                 }
             }
             is NetworkResult.Loading -> {
                 _allMovies.update { pagerUi ->
                     pagerUi.copy(
-                        isLoading = true
+                        isLoading = false
                     )
                 }
             }
