@@ -84,6 +84,7 @@ dependencies {
     implementation Dependencies.AndroidX.Core.coreKtx
     implementation Dependencies.AndroidX.AppCompat.appcompat
     implementation Dependencies.Material.material
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation Dependencies.AndroidX.ConstraintLayout.constraintLayout
     testImplementation Dependencies.AndroidX.TestJunit.testImplementation
     androidTestImplementation Dependencies.AndroidX.AndroidTest.androidTestExtImplementation
