@@ -18,6 +18,10 @@ Libraries Used
   * [koltin-parecelize][17] is used between screens to data carry 
   * [Youtube][21] 
 
+Clean Architecture
+-----------------------
+![https://fernandocejas.com/2018/05/07/architecting-android-reloaded/](https://github.com/android10/Sample-Data/blob/master/Android-CleanArchitecture-Kotlin/architecture/clean_architecture_reloaded_main.png)
+
  UI Layer: MVVM 
  ------------------------
 The app uses [MVVM architecture][15] to have a unidirectional flow of data, separation of concern, testability, and a lot more.
