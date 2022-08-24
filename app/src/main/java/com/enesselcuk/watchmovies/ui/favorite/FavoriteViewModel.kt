@@ -21,11 +21,6 @@ class FavoriteViewModel @Inject constructor(private val moviesRepos: MoviesRepos
     )
     val favoriteEntity: StateFlow<FavoriteUiState> = _favoriteEntity
 
-//    private val _favoriteEntityDelete: MutableStateFlow<FavoriteUiState> = MutableStateFlow(
-//        FavoriteUiState(isLoading = false)
-//    )
-//    val favoriteEntityDelete: StateFlow<FavoriteUiState> = _favoriteEntityDelete
-
     fun getAllFavorite() {
         viewModelScope.launch {
             moviesRepos.getFavorite().collectLatest {

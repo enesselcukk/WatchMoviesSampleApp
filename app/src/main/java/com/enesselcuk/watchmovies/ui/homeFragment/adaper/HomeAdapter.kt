@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.enesselcuk.watchmovies.R
 import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
-import javax.inject.Inject
 
 class HomeAdapter(private val itemClick: (ResultMovies?) -> Unit) :
     ListAdapter<ResultMovies, TrendingViewHolder>(HomeDiffUtil) {

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.paging.LoadState
 import com.enesselcuk.watchmovies.R
 import com.enesselcuk.watchmovies.base.BaseUiState
-import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
+
 
 data class SearchUiState(
     val loadState: LoadState

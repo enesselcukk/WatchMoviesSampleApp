@@ -7,7 +7,6 @@ import com.enesselcuk.watchmovies.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import org.intellij.lang.annotations.Language
 
 import javax.inject.Inject
 
@@ -15,7 +14,6 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repos: MoviesRepos
 ) : ViewModel() {
-
     private val _moviesTrendingState = MutableStateFlow(HomeUiState())
     val moviesTrendingState: StateFlow<HomeUiState> = _moviesTrendingState
 
@@ -23,12 +21,10 @@ class HomeViewModel @Inject constructor(
         MutableStateFlow(HomeUiState())
     val allMovies: StateFlow<HomeUiState> = _allMovies
 
-
-
     fun getTrendingMovies() {
         viewModelScope.launch {
             repos.getTrending(PAGE).collectLatest {
-                uiState(it)
+                moviesUiState(it)
             }
         }
     }
@@ -36,18 +32,15 @@ class HomeViewModel @Inject constructor(
     fun getLiving() {
         viewModelScope.launch {
             repos.pagerShuffle(PAGE).collect { networkResult ->
-                uiState2(networkResult)
+                moviesTrendUiState(networkResult)
             }
         }
     }
-
-
-
     companion object {
         const val PAGE = 1
     }
 
-    private fun uiState(networkResult: NetworkResult<MoviesResponse>) {
+    private fun moviesUiState(networkResult: NetworkResult<MoviesResponse>) {
         when (networkResult) {
             is NetworkResult.Success -> {
                 _allMovies.update { pagerUi ->
@@ -76,7 +69,7 @@ class HomeViewModel @Inject constructor(
     }
 
 
-    private fun uiState2(networkResult: NetworkResult<MoviesResponse>) {
+    private fun moviesTrendUiState(networkResult: NetworkResult<MoviesResponse>) {
         when (networkResult) {
             is NetworkResult.Success -> {
                 _moviesTrendingState.update { pagerUi ->

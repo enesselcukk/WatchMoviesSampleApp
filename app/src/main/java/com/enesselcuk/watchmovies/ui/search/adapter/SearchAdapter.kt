@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.ListAdapter
 import com.enesselcuk.watchmovies.R
 import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
 

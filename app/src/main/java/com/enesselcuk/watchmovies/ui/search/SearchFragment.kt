@@ -16,6 +16,7 @@ import com.enesselcuk.watchmovies.util.Abstract
 import com.enesselcuk.watchmovies.util.CategoryName.LANGUAGE
 import com.enesselcuk.watchmovies.util.collect
 import com.enesselcuk.watchmovies.util.collectLatest
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.map
@@ -28,7 +29,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
 
     override fun definition() {
         searchAdapter = SearchAdapter(::searchClickToDetail)
-
         pagingUiRefresh()
 
         with(binding) {
@@ -65,7 +65,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     private fun searchClickToDetail(resultId: Int) {
         val action = SearchFragmentDirections.actionSearchFragmentToDetailFragment(resultId)
         findNavController().navigate(action)
-
     }
 
     override fun search() {

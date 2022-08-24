@@ -6,6 +6,5 @@ object CategoryName {
     const val NOW_PLAYING = "now_playing"
     const val POPULAR = "popular"
     const val TOPRATED = "top_rated"
-
     const val LANGUAGE = "en-US"
 }

@@ -1,7 +1,7 @@
 package com.enesselcuk.watchmovies.ui.homeFragment
 
 
-import android.widget.TextView
+
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +15,7 @@ import com.enesselcuk.watchmovies.ui.viewPagerFragment.pagerAdapter.HomePagerAda
 import com.enesselcuk.watchmovies.util.collectLatest
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+
 
 
 @AndroidEntryPoint
@@ -84,7 +84,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         TabLayoutMediator(
             binding.mainTabLayout,
             binding.mainViewPager
-        ) { tab, position -> }.attach()
+        ) { _, _ -> }.attach()
     }
 
     private fun dialog() {

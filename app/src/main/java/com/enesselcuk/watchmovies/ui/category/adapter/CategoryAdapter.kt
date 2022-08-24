@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import com.enesselcuk.watchmovies.R
 import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
-import javax.inject.Inject
+
 
 class CategoryAdapter (private val moviesClick: (Int?) -> Unit) :
     PagingDataAdapter<ResultMovies, CategoryViewHolder>(CategoryDiffUtil) {

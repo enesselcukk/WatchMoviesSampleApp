@@ -47,7 +47,6 @@ class MoviesRepositoryImpl @Inject constructor(
         return database.favoriteDao().deleteID(id)
     }
 
-
     override suspend fun allSearch(
         language: String,
         name: String
@@ -60,7 +59,6 @@ class MoviesRepositoryImpl @Inject constructor(
             pagingSourceFactory = pageSearch
         ).flow
     }
-
 
     override suspend fun favorite(moviesFavoriteEntity: MoviesFavoriteEntity) {
         database.favoriteDao().insertMovies(moviesFavoriteEntity)
@@ -79,16 +77,7 @@ class MoviesRepositoryImpl @Inject constructor(
             }
         }.flowOn(dispatcher)
 
-
-    override fun getFavorite2(): Flow<MoviesFavoriteEntity> = flow<MoviesFavoriteEntity>
-    {
-        database.favoriteDao().allMovies().map {
-            emit(it)
-        }
-    }.flowOn(dispatcher)
-
-
-    override fun getMoviesPaging(
+    override suspend fun getMoviesPaging(
         category: String,
         language: String,
     ): Flow<PagingData<ResultMovies>> {
@@ -105,7 +94,7 @@ class MoviesRepositoryImpl @Inject constructor(
         ).flow
     }
 
-    override fun getTrending(page: Int): Flow<NetworkResult<MoviesResponse>> = flow {
+    override suspend fun getTrending(page: Int): Flow<NetworkResult<MoviesResponse>> = flow {
         emit(NetworkResult.Loading())
         try {
             val trending = api.getTrending(page = page)
@@ -117,7 +106,7 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }.flowOn(dispatcher)
 
-    override fun pagerShuffle(page: Int): Flow<NetworkResult<MoviesResponse>> = flow {
+    override suspend fun pagerShuffle(page: Int): Flow<NetworkResult<MoviesResponse>> = flow {
         emit(NetworkResult.Loading())
         try {
             val trending = api.getTrending(page = page)
@@ -129,7 +118,7 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }.flowOn(dispatcher)
 
-    override fun getVideos(videoId: Int, language: String): Flow<NetworkResult<VideoResponse>> =
+    override suspend fun getVideos(videoId: Int, language: String): Flow<NetworkResult<VideoResponse>> =
         flow {
             emit(NetworkResult.Loading())
             try {
@@ -142,7 +131,7 @@ class MoviesRepositoryImpl @Inject constructor(
             }
         }.flowOn(dispatcher)
 
-    override fun getDetail(movies_id: Int, language: String): Flow<NetworkResult<DetailResponse>> =
+    override suspend fun getDetail(movies_id: Int, language: String): Flow<NetworkResult<DetailResponse>> =
         flow {
             emit(NetworkResult.Loading())
             try {
@@ -155,9 +144,7 @@ class MoviesRepositoryImpl @Inject constructor(
             }
         }.flowOn(dispatcher)
 
-
     companion object {
         const val NETWORK_PAGE_SIZE = 1
     }
-
 }

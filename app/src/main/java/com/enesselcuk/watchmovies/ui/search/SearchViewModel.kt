@@ -4,9 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import com.enesselcuk.watchmovies.domain.MoviesRepos
-import com.enesselcuk.watchmovies.source.remote.response.categorys.MoviesResponse
 import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
-import com.enesselcuk.watchmovies.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
