@@ -1,0 +1,146 @@
+import configs.Configs
+import configs.Dependencies
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp' version("1.5.30-1.0.0-beta09")
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk Configs.compileSdkVersion
+
+    defaultConfig {
+        applicationId Configs.applicationId
+        minSdk Configs.minSdkVersion
+        targetSdk Configs.targetSdkVersion
+        versionCode Configs.versionCode
+        versionName Configs.versionName
+
+        testInstrumentationRunner Configs.testInstrumentationRunner
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+        }
+    }
+    flavorDimensions 'api'
+
+    productFlavors {
+        dev {
+            dimension 'api'
+            buildConfigField('String', 'BASE_URL', '"https://api.themoviedb.org/"')
+            buildConfigField('String', 'IMAGE_BASE_W500', '"https://image.tmdb.org/t/p/w500/"')
+            buildConfigField('String', 'IMAGE_BASE', '"https://image.tmdb.org/t/p/w185_and_h278_bestv2"')
+            buildConfigField('String', 'API_KEY', '"7d779c1e7a202d2aa4e20eb90a67548e"')
+        }
+        pilot {
+            dimension 'api'
+            buildConfigField('String', 'BASE_URL', '"https://api.themoviedb.org/"')
+            buildConfigField('String', 'IMAGE_BASE_W500', '"https://image.tmdb.org/t/p/w500/"')
+            buildConfigField('String', 'IMAGE_BASE', '"https://image.tmdb.org/t/p/w185_and_h278_bestv2"')
+            buildConfigField('String', 'API_KEY', '"7d779c1e7a202d2aa4e20eb90a67548e"')
+        }
+        prod {
+            dimension 'api'
+            buildConfigField('String', 'BASE_URL', '"https://api.themoviedb.org/"')
+            buildConfigField('String', 'IMAGE_BASE_W500', '"https://image.tmdb.org/t/p/w500/"')
+            buildConfigField('String', 'IMAGE_BASE', '"https://image.tmdb.org/t/p/w185_and_h278_bestv2"')
+            buildConfigField('String', 'API_KEY', '"7d779c1e7a202d2aa4e20eb90a67548e"')
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation Dependencies.AndroidX.Core.coreKtx
+    implementation Dependencies.AndroidX.AppCompat.appcompat
+    implementation Dependencies.Material.material
+    implementation Dependencies.AndroidX.ConstraintLayout.constraintLayout
+    implementation files('libs\\YouTubeAndroidPlayerApi.jar')
+    testImplementation Dependencies.AndroidX.TestJunit.testImplementation
+    androidTestImplementation Dependencies.AndroidX.AndroidTest.androidTestExtImplementation
+    androidTestImplementation Dependencies.AndroidX.AndroidTestEspresso.androidTestImplementation
+
+    // Room
+    implementation Dependencies.AndroidX.Room.runtime
+    kapt Dependencies.AndroidX.Room.compiler
+    implementation Dependencies.AndroidX.Room.roomPaging
+    implementation Dependencies.AndroidX.Room.ktx
+
+    // Retrofit
+    implementation Dependencies.Retrofit.retrofit
+    implementation Dependencies.Retrofit.jsonConverter
+    implementation Dependencies.Retrofit.json
+
+
+    // Navigation Components
+    implementation Dependencies.AndroidX.Navigation.fragment
+    implementation Dependencies.AndroidX.Navigation.ui
+
+    // viewModel and LiveData
+    implementation Dependencies.AndroidX.Lifecycle.liveData
+    implementation Dependencies.AndroidX.Lifecycle.viewModel
+    implementation Dependencies.AndroidX.Lifecycle.runtime
+
+    // Glide
+    implementation Dependencies.Glide.glide
+    kapt Dependencies.Glide.compiler
+
+    // Activity and fragment ktx
+    implementation Dependencies.AndroidX.FragmentKtx.fragmentKtx
+    implementation Dependencies.AndroidX.ActivityKtx.activityKtx
+
+    // Hilt
+    implementation Dependencies.DaggerHilt.hiltAndroid
+    kapt Dependencies.DaggerHilt.hiltAndroidCompiler
+
+    // coroutines
+    implementation Dependencies.Kotlin.Coroutines.core
+    implementation Dependencies.Kotlin.Coroutines.android
+
+    // Okhttp
+    implementation Dependencies.OkHttp.okhttp
+    implementation Dependencies.OkHttp.loggingInterceptor
+
+    // paging
+    implementation Dependencies.Paging.paging
+    implementation Dependencies.Paging.pagingRxJava
+
+    // youtube
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0'
+
+
+}

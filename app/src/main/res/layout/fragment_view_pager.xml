@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="setDataPager"
+            type="com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.viewPagerFragment.ViewPagerFragment">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/placeholder_game_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="320dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circlePager"
+            app:storeImage="@{setDataPager.poster_path}"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/placeholder_game_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/eden"
+            android:gravity="center"
+            android:text="@{setDataPager.title}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/placeholder_game_img"
+            tools:layout_editor_absoluteX="0dp"
+            tools:text="Movies Name" />
+
+    </FrameLayout>
+</layout>

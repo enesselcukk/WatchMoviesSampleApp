@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="setData"
+            type="com.enesselcuk.watchmovies.source.remote.response.detail.DetailResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/youtube_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_movies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="20dp"
+            android:background="@color/milk"
+            android:minWidth="130dp"
+            android:minHeight="160dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/youtube_player_view"
+            app:shapeAppearanceOverlay="@style/circlePager"
+            app:storeImage="@{setData.poster_path}" />
+
+        <TextView
+            android:id="@+id/text_movies_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:fontFamily="@font/bitter_bold_italic"
+            android:text="@{setData.title}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/image_movies"
+            app:layout_constraintTop_toBottomOf="@id/btn_insert"
+            tools:text="Batman" />
+
+        <ImageView
+            android:id="@+id/btn_insert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:contentDescription="@string/image_favorite"
+            android:src="@drawable/ic_baseline_bookmark_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/youtube_player_view" />
+
+        <TextView
+            android:id="@+id/textView_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:text="@{setData.genres.get(0).name}"
+            app:layout_constraintStart_toEndOf="@id/image_movies"
+            app:layout_constraintTop_toBottomOf="@id/text_movies_name"
+            tools:text="actions" />
+
+        <TextView
+            android:id="@+id/textView_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:text="@{setData.vote_average.toString()}"
+            app:layout_constraintStart_toEndOf="@id/textView_category"
+            app:layout_constraintTop_toBottomOf="@id/text_movies_name"
+            tools:text="8.6" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="5dp"
+            android:contentDescription="@string/image_average"
+            android:src="@drawable/ic_baseline_star"
+            app:layout_constraintStart_toEndOf="@id/textView_average"
+            app:layout_constraintTop_toTopOf="@id/textView_average" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            app:formatDate="@{setData.release_date}"
+            app:layout_constraintBottom_toTopOf="@id/text_movies_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_movies_name"
+            tools:text="03/05/1995" />
+
+        <TextView
+            android:id="@+id/text_movies_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:maxWidth="250dp"
+            android:maxLines="2"
+            android:minWidth="220dp"
+            android:minHeight="100dp"
+            android:text="@{setData.overview}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_movies"
+            app:layout_constraintTop_toBottomOf="@id/text_movies_name"
+            tools:text="Batman dfdsfsdfsdfsdfsdf" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
