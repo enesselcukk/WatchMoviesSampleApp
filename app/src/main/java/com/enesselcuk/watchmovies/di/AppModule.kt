@@ -60,7 +60,6 @@ object AppModule {
             .client(okHttpClient)
             .baseUrl(BASE_URL)
             .build()
-
     }
 
     @Singleton
