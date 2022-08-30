@@ -12,6 +12,7 @@ class ViewPagerFragment(private val onClick: (ResultMovies?) -> Unit) :
     BaseFragment<FragmentViewPagerBinding>(FragmentViewPagerBinding::inflate) {
 
     override fun definition() {
+
         val arguments: ResultMovies? = arguments?.getParcelable(ARG_MOVIES)
         binding.setDataPager = arguments
 

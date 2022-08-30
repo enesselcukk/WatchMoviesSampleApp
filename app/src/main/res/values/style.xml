@@ -44,7 +44,12 @@
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
-
     <!--  BottomSheetDialog end-->
+
+    <!-- custom Dialog-->
+
+    <style name="custom_alert_dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@drawable/line_layout_dialog</item>
+    </style>
 
 </resources>

@@ -59,5 +59,5 @@ class CategoryDialogFragment : DialogFragment() {
         return binding.root
     }
 
-
+    override fun getTheme(): Int = R.style.custom_alert_dialog
 }

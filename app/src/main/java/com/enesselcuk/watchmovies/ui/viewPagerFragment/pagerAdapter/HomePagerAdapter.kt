@@ -37,7 +37,6 @@ class HomePagerAdapter(
             5 -> fragment.arguments = Bundle().apply {
                 putParcelable(ARG_MOVIES, listMovies[5])
             }
-
         }
         return fragment
     }
