@@ -66,6 +66,7 @@ android {
             buildConfigField('String', 'API_KEY', '"7d779c1e7a202d2aa4e20eb90a67548e"')
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -100,7 +101,6 @@ dependencies {
     implementation Dependencies.Retrofit.jsonConverter
     implementation Dependencies.Retrofit.json
 
-
     // Navigation Components
     implementation Dependencies.AndroidX.Navigation.fragment
     implementation Dependencies.AndroidX.Navigation.ui
@@ -129,6 +129,7 @@ dependencies {
     // Okhttp
     implementation Dependencies.OkHttp.okhttp
     implementation Dependencies.OkHttp.loggingInterceptor
+//    implementation Dependencies.OkHttp.urlConnection
 
     // paging
     implementation Dependencies.Paging.paging

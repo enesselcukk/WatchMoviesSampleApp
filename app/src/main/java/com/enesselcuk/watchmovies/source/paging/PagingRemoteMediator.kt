@@ -9,7 +9,6 @@ import com.enesselcuk.watchmovies.source.local.MoviesDatabase
 import com.enesselcuk.watchmovies.source.local.paging.RemoteKeysEntity
 import com.enesselcuk.watchmovies.source.remote.apiService.MoviesService
 import com.enesselcuk.watchmovies.source.remote.response.categorys.ResultMovies
-import org.intellij.lang.annotations.Language
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -18,7 +17,8 @@ class PagingRemoteMediator(
     private val api: MoviesService,
     private val database: MoviesDatabase,
     private val categoryName: String,
-    private val language: String
+    private val language: String,
+//    private val authenticationToken: String?
 ) : RemoteMediator<Int, ResultMovies>() {
     override suspend fun load(
         loadType: LoadType,
@@ -36,7 +36,6 @@ class PagingRemoteMediator(
                     ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
                 nextKey
             }
-
             LoadType.PREPEND -> {
                 val remoteKeys = getRemoteKeyForFirstItem(state)
                 val prevKey = remoteKeys?.prevKey
@@ -46,7 +45,13 @@ class PagingRemoteMediator(
         }
 
         try {
-            val apiResponse = api.getMovies(movies = categoryName, language = language, page = page)
+            val apiResponse =
+                api.getMovies(
+                    movies = categoryName,
+                    language = language,
+                    page = page,
+//                    bearer = authenticationToken
+                )
             val repos = apiResponse.results
             val endOfPaginationReached = repos.isEmpty()
 

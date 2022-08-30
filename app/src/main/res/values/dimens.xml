@@ -22,4 +22,9 @@
 
     <dimen name="minHeightThree">250dp</dimen>
     <dimen name="minWidthThree">250dp</dimen>
+
+    <dimen name="input_boxStrokeWith">2dp</dimen>
+
+
+
 </resources>

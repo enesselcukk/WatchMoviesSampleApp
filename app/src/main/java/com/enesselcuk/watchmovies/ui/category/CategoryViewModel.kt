@@ -20,11 +20,15 @@ class CategoryViewModel @Inject constructor(private val repos: MoviesRepos) : Vi
         MutableStateFlow(PagingData.empty())
     val categoryFlow: StateFlow<PagingData<ResultMovies>> = _categoryFlow
 
-    fun moviesCategory(categoryName: String, language: String) {
+    fun moviesCategory(
+        categoryName: String,
+        language: String
+    ) {
         viewModelScope.launch {
-            repos.getMoviesPaging(categoryName, language).cachedIn(viewModelScope).collectLatest {
-                _categoryFlow.value = it
-            }
+            repos.getMoviesPaging(categoryName, language)
+                .cachedIn(viewModelScope).collectLatest {
+                    _categoryFlow.value = it
+                }
         }
     }
 }

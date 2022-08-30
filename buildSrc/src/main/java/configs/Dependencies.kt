@@ -117,6 +117,8 @@ object Dependencies {
         const val okhttp = "com.squareup.okhttp3:okhttp:$version"
         const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
         const val mockWebServer = "com.squareup.okhttp3:mockwebserver:$version"
+//        const val urlConnection = "com.squareup.okhttp:okhttp-urlconnection:$version"
+
     }
 
     object Moshi {

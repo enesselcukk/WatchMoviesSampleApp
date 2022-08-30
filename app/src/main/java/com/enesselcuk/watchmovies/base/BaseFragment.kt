@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 
 
 abstract class BaseFragment<VB : ViewDataBinding>(
     private val inflateLayout: (LayoutInflater) -> VB,
 
-) : Fragment() {
+    ) : Fragment() {
     protected lateinit var binding: VB
 
     override fun onCreateView(

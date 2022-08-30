@@ -44,4 +44,19 @@
     <string name="image_search">image_search</string>
     <string name="image_category">image_category</string>
     <string name="image_close">image_close</string>
+
+
+    <string name="register">Register</string>
+    <string name="name_and_surname">Name And Surname</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+
+    <string name="name_email_password">name, e-mail and password cannot be empty</string>
+    <string name="email_password">E-mail and password cannot be empty</string>
+    <string name="name">name cannot be empty</string>
+    <string name="email_cont">e-mail cannot be empty</string>
+    <string name="password_cont">password cannot be empty</string>
+    <string name="not_register">you not have register</string>
 </resources>

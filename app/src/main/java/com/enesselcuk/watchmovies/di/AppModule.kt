@@ -21,14 +21,18 @@ import javax.inject.Singleton
 
 @[Module InstallIn(SingletonComponent::class)]
 object AppModule {
-    private const val CONNECT_TIMEOUT = 20L
-    private const val READ_TIMEOUT = 60L
+    private const val CONNECT_TIMEOUT = 120L
+    private const val READ_TIMEOUT = 120L
     private const val WRITE_TIMEOUT = 120L
 
+//    @Provides
+//    fun auth() = AuthenticationToken()
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
+    fun provideOkHttpClient(
+        @ApplicationContext context: Context
+    ): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
             else HttpLoggingInterceptor.Level.NONE

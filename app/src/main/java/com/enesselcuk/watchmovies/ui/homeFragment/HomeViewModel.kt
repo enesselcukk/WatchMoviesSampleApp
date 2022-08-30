@@ -29,13 +29,15 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getLiving() {
+    fun getLivingToken() {
         viewModelScope.launch {
-            repos.pagerShuffle(PAGE).collect { networkResult ->
-                moviesTrendUiState(networkResult)
-            }
+            repos.pagerShuffle(PAGE)
+                .collect { networkResult ->
+                    moviesTrendUiState(networkResult)
+                }
         }
     }
+
     companion object {
         const val PAGE = 1
     }

@@ -22,6 +22,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private lateinit var pagerAdapter: HomePagerAdapter
 
     private lateinit var homeAdapter: HomeAdapter
+
+
     override fun definition() {
         homeAdapter = HomeAdapter(::trendClick)
         binding.mainViewPager.setPageTransformer(DepthPageTransformer())
@@ -30,13 +32,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun setObserver() {
         homeViewModel.getTrendingMovies()
-        homeViewModel.getLiving()
+        homeViewModel.getLivingToken()
 
         with(binding) {
             recyclerview.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             recyclerview.adapter = homeAdapter
-
 
             searchBarImage.setOnClickListener {
                 findNavController().navigate(R.id.searchFragment)
@@ -52,7 +53,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             homeAdapter.submitList(moviesResult.shuffled().take(8))
         }
         binding.setData = homeSetData
-
     }
 
     private fun pagerUiState(pagerUiState: HomeUiState) {

@@ -28,7 +28,7 @@ import javax.inject.Inject
 class MoviesRepositoryImpl @Inject constructor(
     private val api: MoviesService,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
-    private val database: MoviesDatabase
+    private val database: MoviesDatabase,
 ) : MoviesRepos {
 
     override suspend fun getIdFavorite(id: Int): Flow<NetworkResult<MoviesFavoriteEntity>> = flow {
@@ -41,11 +41,12 @@ class MoviesRepositoryImpl @Inject constructor(
         } catch (ex: HttpException) {
             emit(NetworkResult.Error(ex.message))
         }
-    }
+    }.flowOn(dispatcher)
 
     override suspend fun deleteFavorite(id: Int): Int {
         return database.favoriteDao().deleteID(id)
     }
+
 
     override suspend fun allSearch(
         language: String,
@@ -106,6 +107,7 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }.flowOn(dispatcher)
 
+
     override suspend fun pagerShuffle(page: Int): Flow<NetworkResult<MoviesResponse>> = flow {
         emit(NetworkResult.Loading())
         try {
@@ -118,7 +120,24 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }.flowOn(dispatcher)
 
-    override suspend fun getVideos(videoId: Int, language: String): Flow<NetworkResult<VideoResponse>> =
+    override suspend fun pagerShuffleToken(
+        page: Int,
+    ): Flow<NetworkResult<MoviesResponse>> = flow {
+        emit(NetworkResult.Loading())
+        try {
+            val trending = api.getTrendingToken(page = page)
+            emit(NetworkResult.Success(trending))
+        } catch (ex: Exception) {
+            emit(NetworkResult.Error(ex.message.toString()))
+        } catch (ex: IOException) {
+            emit(NetworkResult.Error(ex.message.toString()))
+        }
+    }.flowOn(dispatcher)
+
+    override suspend fun getVideos(
+        videoId: Int,
+        language: String
+    ): Flow<NetworkResult<VideoResponse>> =
         flow {
             emit(NetworkResult.Loading())
             try {
@@ -131,7 +150,10 @@ class MoviesRepositoryImpl @Inject constructor(
             }
         }.flowOn(dispatcher)
 
-    override suspend fun getDetail(movies_id: Int, language: String): Flow<NetworkResult<DetailResponse>> =
+    override suspend fun getDetail(
+        movies_id: Int,
+        language: String
+    ): Flow<NetworkResult<DetailResponse>> =
         flow {
             emit(NetworkResult.Loading())
             try {

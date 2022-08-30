@@ -22,4 +22,8 @@ interface MoviesRepos {
     suspend fun deleteFavorite(id: Int): Int
 
 
+    suspend fun pagerShuffleToken(page: Int): Flow<NetworkResult<MoviesResponse>>
+
+
+
 }
