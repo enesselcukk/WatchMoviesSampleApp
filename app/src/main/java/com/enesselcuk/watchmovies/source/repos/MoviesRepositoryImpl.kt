@@ -120,20 +120,6 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }.flowOn(dispatcher)
 
-    override suspend fun pagerShuffleToken(
-        page: Int,
-    ): Flow<NetworkResult<MoviesResponse>> = flow {
-        emit(NetworkResult.Loading())
-        try {
-            val trending = api.getTrendingToken(page = page)
-            emit(NetworkResult.Success(trending))
-        } catch (ex: Exception) {
-            emit(NetworkResult.Error(ex.message.toString()))
-        } catch (ex: IOException) {
-            emit(NetworkResult.Error(ex.message.toString()))
-        }
-    }.flowOn(dispatcher)
-
     override suspend fun getVideos(
         videoId: Int,
         language: String

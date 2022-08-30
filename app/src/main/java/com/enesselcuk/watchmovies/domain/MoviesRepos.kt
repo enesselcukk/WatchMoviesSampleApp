@@ -20,10 +20,4 @@ interface MoviesRepos {
     suspend fun getIdFavorite(id: Int): Flow<NetworkResult<MoviesFavoriteEntity>>
     suspend fun allSearch(language: String, name: String): Flow<PagingData<ResultMovies>>
     suspend fun deleteFavorite(id: Int): Int
-
-
-    suspend fun pagerShuffleToken(page: Int): Flow<NetworkResult<MoviesResponse>>
-
-
-
 }
